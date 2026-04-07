@@ -58,10 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const typedElement = document.querySelector('.typed-text');
   if (typedElement) {
     const texts = [
-      'Commerce Graduate',
-      'Aspiring Tax Professional',
-      'Eager Learner',
-      'Future Finance Leader'
+      'Tax Associate at BDO RISE',
+      'US Partnership Tax',
+      'Financial Services Group',
+      'Continuous Learner'
     ];
 
     let textIndex = 0;
@@ -159,6 +159,15 @@ document.addEventListener('DOMContentLoaded', () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const target = entry.target;
+          const textValue = target.getAttribute('data-text');
+          
+          // If it's a text-based stat, just display it
+          if (textValue) {
+            target.textContent = textValue;
+            counterObserver.unobserve(target);
+            return;
+          }
+          
           const end = parseInt(target.getAttribute('data-count'));
           const suffix = target.getAttribute('data-suffix') || '';
           let count = 0;
