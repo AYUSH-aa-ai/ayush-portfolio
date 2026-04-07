@@ -3,6 +3,13 @@
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // ---------- Dynamic Current Month/Year ----------
+  const currentMonthEl = document.getElementById('currentMonthYear');
+  if (currentMonthEl) {
+    const now = new Date();
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    currentMonthEl.textContent = months[now.getMonth()] + ' ' + now.getFullYear();
+  }
   // ---------- Navbar Scroll Effect ----------
   const navbar = document.querySelector('.navbar');
   const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
